@@ -1,0 +1,6 @@
+data <- read.csv2("Coursera_R//household_power_consumption.txt")
+mydata <- subset(data,as.Date(data$Date, format="%d/%m/%Y")=="2007-02-01" |as.Date(data$Date, format="%d/%m/%Y")=="2007-02-02")
+plot(mydata$Date,mydata$Sub_metering_1)
+legend(x=2010,y= 1.0,legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),col =c("black","red","blue"),border = "black", pch=20)
+dev.copy(png,filename="plot2.png",height=480, width=480,bg="white")
+dev.off()

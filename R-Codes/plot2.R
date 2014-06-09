@@ -1,0 +1,5 @@
+data <- read.csv2("Coursera_R//household_power_consumption.txt")
+mydata <- subset(data,as.Date(data$Date, format="%d/%m/%Y")=="2007-02-01" |as.Date(data$Date, format="%d/%m/%Y")=="2007-02-02")
+plot(as.numeric(mydata$Global_active_power),strptime(mydata$Date,"%a")=="Thu"|strptime(mydata$Date,"%a")=="Fri"|strptime(mydata$Date,"%a")=="Sat")
+dev.copy(png,filename="plot2.png",height=480, width=480,bg="white")
+dev.off()
